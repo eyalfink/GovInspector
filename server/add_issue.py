@@ -2,8 +2,10 @@ import utils
 
 class Main(utils.Handler):
     def get(self):
-        self.render('templates/index.html',
-                    params=self.params)
+        self.render('templates/hello.html',
+                    foo='bar')
+    def post(self):
+        pass
 
 
 if __name__ == '__main__':
