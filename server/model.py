@@ -1,5 +1,7 @@
+# -*- coding: utf-8 -*-
+
 class ModelAccess(object):
-    def get_issue(issue_id):
+    def get_issue(self, issue_id):
         return {
             "title": {
                 "en": "Government decisions & Issues as they're described by the government inspector report",
@@ -75,12 +77,12 @@ class ModelAccess(object):
             }
         }
 
-    def create_issue():
+    def create_issue(self):
         pass
 
-    def update_issue(issue_id):
+    def update_issue(self, issue_id):
         pass
 
-    def query(query_string):
+    def query(self, query_string):
         pass
 

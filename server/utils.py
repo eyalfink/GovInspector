@@ -6,6 +6,8 @@ import cgitb
 import sys
 import os
 
+import model
+
 ROOT = os.path.dirname(__file__)
 
 
@@ -27,8 +29,10 @@ class Struct:
 
 
 class Handler(webapp.RequestHandler):
-    auto_params = {
-    }
+    def __init__(self):
+        self.model = model.ModelAccess()
+        self.auto_params = {
+            }
 
     def render(self, path, **params):
         """Renders the template at the given path with the given parameters."""
