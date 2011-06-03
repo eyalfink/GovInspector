@@ -1,0 +1,11 @@
+virtualenv_govinspector/
+
+# Mac OS X Finder and whatnot.
+.DS_Store
+
+# Python compiled files.
+*.pyc
+
+# automatic backup files.
+*.swp
+
