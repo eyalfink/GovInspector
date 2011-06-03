@@ -9,3 +9,6 @@ virtualenv_govinspector/
 # automatic backup files.
 *.swp
 
+# automatic emacs backup files.
+*~
+
