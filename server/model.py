@@ -84,7 +84,7 @@ class ModelAccess(object):
             # TODO: Return error in case `issue_id` isn't valid.
             pass
 
-    def create_issue(self):
+    def create_issue(self, issue):
         pass
 
     def update_issue(self, issue_id):
