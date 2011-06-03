@@ -1,0 +1,37 @@
+<form method="post" action="">
+	<div class="field">
+		<label for="title">סעיף</label>
+		<input type="text" name="title" id="title" />
+	</div>
+	
+	<div class="field">
+		<label for="defect">ליקוי</label>
+		<input type="text" name="defect" id="defect" />
+	</div>
+	
+	<div class="field">
+		<label for="track">מעקב</label>
+		<input type="track" name="track" id="track" />
+	</div>
+	
+	<div class="field">
+		<label for="status">מצב</label>
+		<select name="status" id="status">
+			<option value="notdone">לא הושלם</option>
+			<option value="progress">בתהליך</option>
+			<option value="done">בוצע</option>
+		</select>
+	</div>
+	
+	<div class="field">
+		<label for="type">סוג</label>
+		<select name="type" id="type">
+			<option value="inspector">מבקר</option>
+			<option value="gov">ממשלה</option>
+		</select>
+	</div>
+	
+	<div class="field">
+		<input type="submit" value="הוסף">
+	</div>
+</form>
