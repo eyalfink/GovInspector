@@ -84,7 +84,7 @@ a:hover{
 
 #logo{
   height:72px;
-  background-image:url('media/gov-il-logo.jpg');
+  background-image:url('../media/gov-il-logo.jpg');
   background-position:right top;
   border-bottom:1px dotted #b5b5b5;
   padding-bottom:3px;
@@ -92,11 +92,11 @@ a:hover{
 }
 
 #budget_heading{
-  background-image:url('media/bg_gov_header.png');
+  background-image:url('../media/bg_gov_header.png');
   height:50px;
 }
 #budget_heading h2 {
-  background-image:url('media/cube.png');
+  background-image:url('../media/cube.png');
   background-position:right;
   background-repeat: no-repeat;
   line-height:49px;
