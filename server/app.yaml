@@ -12,3 +12,6 @@ handlers:
 
 - url: /
   script: main.py
+
+- url: /admin/addissue
+  script: addissue.py
