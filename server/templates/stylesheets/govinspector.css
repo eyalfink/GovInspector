@@ -155,6 +155,32 @@ a:hover{
   line-height:19px;
 }
 
+#welcome{
+  padding: 2px 15px;
+
+  background-color: #DEECF9;
+
+  -webkit-border-top-left-radius: px;
+  -webkit-border-top-right-radius: px;
+  -webkit-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-left-radius: 10px;
+  -moz-border-radius-topleft: px;
+  -moz-border-radius-topright: px;
+  -moz-border-radius-bottomright: 10px;
+  -moz-border-radius-bottomleft: 10px;
+  border-top-left-radius: px;
+  border-top-right-radius: px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+#welcome_title {
+  font-size:24px;
+}
+
+#welcome_text {
+}
+
 #summary {
   background-color:#deecf9;
   text-align:center;
