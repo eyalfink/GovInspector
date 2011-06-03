@@ -7,3 +7,6 @@
 # automatic backup files.
 *.swp
 
+# automatic emacs backup files.
+*~
+
