@@ -5,6 +5,8 @@ import google.appengine.ext.webapp.util
 import cgitb
 import sys
 import os
+from google.appengine.api import urlfetch
+from django.utils import simplejson
 
 import model
 
@@ -30,7 +32,8 @@ class Struct:
 
 class Handler(webapp.RequestHandler):
     def __init__(self):
-        self.model = model.ModelAccess()
+        self.model = model.ModelAccess(urlfetch=urlfetch, 
+                                       simplejson=simplejson)
         self.auto_params = {
             }
 
