@@ -1,5 +1,3 @@
-
-
 import logging
 from google.appengine.ext import webapp
 import google.appengine.ext.webapp.template

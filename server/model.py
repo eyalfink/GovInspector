@@ -1,15 +1,13 @@
-
-
 class ModelAccess(object):
-    def GetIssue(issue_id):
+    def get_issue(issue_id):
         pass
 
-    def CreateIssue():
+    def create_issue():
         pass
 
-    def UpdateIssue(issue_id):
+    def update_issue(issue_id):
         pass
-    
-    def Query(query_string):
+
+    def query(query_string):
         pass
 
