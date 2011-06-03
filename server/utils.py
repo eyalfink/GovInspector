@@ -1,3 +1,6 @@
+from google.appengine.dist import use_library
+use_library('django', '1.2')
+
 import logging
 from google.appengine.ext import webapp
 import google.appengine.ext.webapp.template
@@ -11,6 +14,7 @@ from django.utils import simplejson
 import model
 
 ROOT = os.path.dirname(__file__)
+
 
 
 class ErrorMessage(Exception):
@@ -36,6 +40,9 @@ class Handler(webapp.RequestHandler):
                                        simplejson=simplejson)
         self.auto_params = {
             }
+
+        #TODO(eyalf): cache in memcache
+        self.schema = self.model.get_schema()
 
     def render(self, path, **params):
         """Renders the template at the given path with the given parameters."""

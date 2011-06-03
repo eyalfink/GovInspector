@@ -1,4 +1,16 @@
-<form method="post" action="">
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="/admin/add_issue">
+  {% for name, field in schema.items %}
+    <div class="field">
+      <label for="title">{{name}}</label>
+      <input title="{{field.description}}" type="text" name="{{name}}" id="{{name}}" />
+      <span class='gii-form-help'>{{field.description}}</span>
+    </div>
+  {% endfor %}
+    <hr>
 	<div class="field">
 		<label for="title">סעיף</label>
 		<input type="text" name="issue[title]" id="title" />
@@ -35,3 +47,5 @@
 		<input type="submit" value="הוסף">
 	</div>
 </form>
+
+{% endblock %}

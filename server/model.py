@@ -17,10 +17,15 @@ class ModelAccess(object):
         url = DB_QUERY_URL
         if issue_id:
             url += '/%s'%issue_id
-            
-        url += '?o=json&%s'%(urllib.urlencode(params))
+        if params:
+            url += '/?o=json&%s'%(urllib.urlencode(params))
+        else:
+            # This will retrieve the schema
+            url += '?o=json'
         logging.info('Fetching: %s', url)
         result = self.urlfetch.fetch(url)
+        if result.status_code != 200:
+            raise # 
         return self.simplejson.loads(result.content)
 
     def _post_json(self, issue_id, params):
@@ -32,6 +37,10 @@ class ModelAccess(object):
                                 method=self.urlfetch.POST,
                                 headers=headers)
         return result.status_code
+
+    def get_schema(self):
+        return self._get_json(issue_id=None, params=None)
+        
 
     def get_issue(self, issue_id):
         try:

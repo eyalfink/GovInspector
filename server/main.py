@@ -11,7 +11,7 @@ class Main(utils.Handler):
 
     def get_ministry_avg(self):
         #results = self.model.query('agrr')
-        return self.model.get_issue('fake')
+        return self.model.get_issue(1)
         return [{'name': 'foo',
                  'avg': 0.5},
                 {'name': 'bar',
