@@ -12,3 +12,6 @@ handlers:
 
 - url: /admin/add_issue
   script: addissue.py
+
+- url: /test
+  script: model_test.py
