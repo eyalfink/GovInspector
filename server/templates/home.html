@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+    {% block extra_head %}
+    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js'></script>  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+    <script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="js/jquery-1.6.1.js"%3E%3C/script%3E'))</script>
+
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript"> gii = {};gii.data = {{data|safe}}; </script>
+    <script type="text/javascript" src="static/javascript/ministry_avg.js"></script>
+    {% endblock %}
+
+    {% block content %}
+    <div id="content">
+        <div id="welcome">
+            <p id="welcome_title">ברוכים הבאים לאתר מבקר מבקר-המדינה!</p>
+            <p id="welcome_text">
+            על רקע האסון בכרמל התכנסה ועדת השרים לביקורת המדינה והחליטה להרחיב את הפיקוח על תיקון הליקויים בדו"חות מבקר המדינה. על נושא זה ממונה נושא משרה ייחודי, המפקח הכללי במשרד רה"מ, מר יעקב זלצר, המוציא דו"חות מעקב שנתיים והסכים לשתף פעולה לצורך הקמת אתר אשר יציג דו"חות המעקב ומצב הטיפול בנושאי דו"חות מבקר המדינה במשרדי הממשלה ובגופים המבוקרים.<br/>
+            </br>
+            כחלק מעקרון השקיפות, האתר ינגיש בצורה חזותית, קלה ובהירה את תוכן הדו"חות המפקע, על מנת לאפשר לציבור ללמוד על קצב יישום דו"חות מבקר המדינה.
+            </p>
+        </div>
+        <div id="ministry_avg_chart"></div>
+    </div>
+    {% endblock %}
