@@ -9,7 +9,6 @@ gii.FT_URL = 'http://www.google.com/fusiontables/gvizdata?tq=';
 gii.TABLE_NUMBER = 946168;
 
 function createDashboard() {
-
     gii.officeTable = createOfficeTable();
     gii.performanceChart = createPerformanceChart();
     gii.issuesTable = createIssuesTable();
@@ -50,6 +49,8 @@ function drawOfficeTable(table, data) {
         width    : '100%',
         rtlTable : true
     });
+
+    //table.setSelection([{ row : 0 }]);  // Select 1st row. FIXME: Doesn't trigger events.
 }
 
 
