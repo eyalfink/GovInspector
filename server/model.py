@@ -34,6 +34,7 @@ class ModelAccess(object):
         headers={'Content-Type': 'application/json'}
         url = '%s/%s?%s'%(DB_URL, issue_id, 'apikey=%s'%self.yeda_token)
         data = self.simplejson.dumps(params)
+        logging.info('Data:\n%s', data)
         result = self.urlfetch.fetch(url=url,
                                 payload=data,
                                 method=self.urlfetch.POST,
@@ -52,7 +53,7 @@ class ModelAccess(object):
             raise
 
     def create_issue(self, issue_id, issue):
-         self._post_json(issue_id, issue)
+         self._post_json(issue_id=issue_id, params=issue)
 
     def update_issue(self, issue_id):
         pass
