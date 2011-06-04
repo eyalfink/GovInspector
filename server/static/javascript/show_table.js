@@ -50,7 +50,9 @@ function drawOfficeTable(table, data) {
         rtlTable : true
     });
 
-    //table.setSelection([{ row : 0 }]);  // Select 1st row. FIXME: Doesn't trigger events.
+    table.setSelection([{ row : 0 }]);  // Select 1st row. FIXME: Doesn't trigger events.
+    updatePerformanceChart();
+    updateIssuesTable();
 }
 
 
