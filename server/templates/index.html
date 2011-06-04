@@ -8,6 +8,18 @@
         <link type="image/x-icon" rel="icon" href="static/media/favicon.ico" />
         <link type="text/css" rel="stylesheet" href="static/stylesheets/govinspector.css">
 
+        <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js'></script>  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+        <script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="js/jquery-1.6.1.js"%3E%3C/script%3E'))</script>
+
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+        <script type="text/javascript">
+            gii = {}
+            gii.data = {{data}};
+        </script>
+
+        <script type="text/javascript" src="static/javascript/ministry_avg.js"></script>
+
         <!--<script type="text/javascript">
             var _gaq = _gaq || [];
             _gaq.push(['_setAccount', 'UA-10203855-4']);
@@ -40,6 +52,7 @@
                         כחלק מעקרון השקיפות, האתר ינגיש בצורה חזותית, קלה ובהירה את תוכן הדו"חות המפקע, על מנת לאפשר לציבור ללמוד על קצב יישום דו"חות מבקר המדינה.
                     </p>
                 </div>
+                <div id="ministry_avg_chart"></div>
             </div>
 
             <div id="footer">
@@ -62,9 +75,6 @@
                 in order for this application to display correctly.
             </div>
         </noscript>
-	<script>
-	  gii = {} 
-	  gii.data = {{data}};
-	</script>
+
     </body>
 </html>
