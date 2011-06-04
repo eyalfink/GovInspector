@@ -25,10 +25,15 @@ function createOfficeTable() {  // Office list table
 }
 
 function drawOfficeTable(data) {
+    var headers = data.B;  // Overwrite db column header labels.
+
+    headers[0].label = "משרד";
+    headers[1].label = "ליקויים";
+
     var tableEl = document.getElementById('gii_office_list_view')
     var table = new google.visualization.Table(tableEl);
     table.draw(data, {
-        width    : '40%',
+        width    : '100%',
         rtlTable : true
     });
 }
@@ -36,7 +41,7 @@ function drawOfficeTable(data) {
 
 function createPerformanceChart() {  // Office performance chart
     var queryText = encodeURIComponent(
-        "SELECT report, average(status) FROM " + gii.TABLE_NUMBER + " GROUP BY report");
+        "SELECT report, AVERAGE(status) FROM " + gii.TABLE_NUMBER + " GROUP BY report");
     var query = new google.visualization.Query(gii.FT_URL  + queryText);
 
     query.send(function (response) {
@@ -47,9 +52,22 @@ function createPerformanceChart() {  // Office performance chart
 function drawPerformanceChart(data) {
     var chartEl = document.getElementById('gii_performance_view');
     var chart = new google.visualization.BarChart(chartEl);
-    chart.draw(data, {
-    });
 
+    chart.draw(data, {
+        width           : '100%',
+        height          : 200,
+        legend          : 'none',
+        backgroundColor : '#DEECF9',
+        vAxis           : {
+            direction : 1,
+            textStyle : { fontSize : 20 }
+        },
+        hAxis           : {
+            textStyle : { fontSize : 14 },
+            format    : '#,###%',
+            maxValue  : 1
+        }
+    });
 }
 
 
@@ -85,8 +103,8 @@ function drawIssuesTable(data) {
     var table = new google.visualization.Table(tableEl);
 
     table.draw(data, {
-		rtlTable : true,
-		page     : 'enable',
+		rtlTable  : true,
+		page      : 'enable',
         allowHtml : true
         //showRowNumber : true
     });
