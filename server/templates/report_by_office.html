@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link type="text/css" rel="stylesheet" href="/static/stylesheets/report_by_office.css">
+<script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.js'></script>  <!-- Grab Google CDN's jQuery. fall back to local if necessary -->
+<script type="text/javascript">!window.jQuery && document.write(unescape('%3Cscript type="text/javascript" src="js/jquery-1.6.1.js"%3E%3C/script%3E'))</script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="static/javascript/report_by_office.js"></script>
+{% endblock %}
+
+{% block content %}
+<div id="gii_content">
+  <div class="gii_section_header">דוחות לפי משרדים</div>
+  <div id="gii_office_selection">
+    <div id="gii_office_list"></div>
+    <div id="gii_office_stat"></div>
+  </div>
+  <div id="gii_issue_list">
+    <div class="gii_section_header"> רשימת סעיפים </div>
+  </div>
+</div>
+{% endblock %}

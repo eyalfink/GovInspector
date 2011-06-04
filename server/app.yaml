@@ -24,6 +24,9 @@ handlers:
 - url: /
   script: main.py
 
+- url: /report_by_office
+  script: report_by_office.py
+
 - url: /admin/add_issue
   script: add_issue.py
 
