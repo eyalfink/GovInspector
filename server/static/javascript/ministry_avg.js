@@ -37,11 +37,10 @@ function drawChart(data) {
         legend          : 'none',
         fontSize        : 20,
         backgroundColor : '#DEECF9',
-        hAxis: {
-            format : '#,###%'
+        hAxis           : {
+            format : '#,###%',
+            maxValue : 1
         },
-        vAxis: {
-            direction : 1,
-        }
+        vAxis           : { direction : 1, }
     });
 }
