@@ -1,31 +1,22 @@
-google.load('visualization', '1');
+// -*- coding: utf-8 -*-
 
-function changeData(scorer) {
-  var whereClause = "";
-  if(scorer) {
-    whereClause = " WHERE 'Scoring Team' LIKE '" + scorer + "'";
-  }
-  var queryText = encodeURIComponent("SELECT 'Scoring Team', 'Receiving Team', 'Minute of goal' FROM 197026" + whereClause);
-  var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+google.load("visualization", "1", {packages: ["table"]});
+google.setOnLoadCallback(drawFusionTable);
+
+
+function drawFusionTable() {
+    var queryText = encodeURIComponent("SELECT text, topic, report, status FROM 946168");
+    var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
   
-  query.send(getData);
+    query.send(function(response) {
+	    drawTable(response.getDataTable());
+	});
 }
 
-function getData(response) {
-  numRows = response.getDataTable().getNumberOfRows();
-  numCols = response.getDataTable().getNumberOfColumns();
-  
-  fusiontabledata = "<b>";
-  for(i = 0; i < numCols; i++) {
-    fusiontabledata += response.getDataTable().getColumnLabel(i) + ",";
-  }
-  fusiontabledata += "</b><br />";
-  
-  for(i = 0; i < numRows; i++) {
-    for(j = 0; j < numCols; j++) {
-      fusiontabledata += response.getDataTable().getValue(i, j) + ", ";
-    }
-    fusiontabledata += "<br />";
-  }
-  document.getElementById('ftdata').innerHTML = fusiontabledata;
+function drawTable(data) {
+    var tableEl = document.getElementById('gii_issues_list_view')
+    var table = new google.visualization.Table(tableEl);
+    table.draw(data, {showRowNumber: true,
+		page: 'enable',
+		rtlTable: true});
 }
