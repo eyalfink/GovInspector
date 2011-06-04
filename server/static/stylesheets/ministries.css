@@ -4,14 +4,29 @@ nav ul li:nth-child(2) a {  /* White cardboard box on selected page nav element.
 	background-color: #FFFFFF;
 }
 
-#gii_office_selection {
-    display: inline;
+#gii_content > div {
+    padding: 10px;
+
+    overflow: hidden;
+    background-color: #DEECF9;
+
+    -webkit-border-radius: 10px;
+    -moz-border-radius:    10px;
+    border-radius:         10px;
 }
+#gii_office_selection {
+    margin-bottom: 10px;
+}
+
 #gii_office_list {
-    float: right;
+    padding: 5px;
+
     width: 40%;
+    float: right;
 }
 #gii_performance {
+    padding: 5px;
+
+    width: 55%;
     float: left;
-    width: 60%;
 }

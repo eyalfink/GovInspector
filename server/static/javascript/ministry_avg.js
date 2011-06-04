@@ -31,16 +31,24 @@ function drawFusionTableChart() {
 
 function drawChart(data) {
     var chart = new google.visualization.BarChart(document.getElementById('ministry_avg_chart'));
+
+    $.each(data.F, function (i, ministry) {  // Calculate average points for each ministry. FIXME: Do this in GVis instead.
+        ministry.c[1].v /= 2;
+    });
+
     chart.draw(data, {
         width           : '100%',
         height          : 500,
         legend          : 'none',
-        fontSize        : 20,
         backgroundColor : '#DEECF9',
-        hAxis           : {
-            format : '#,###%',
-            maxValue : 1
+        vAxis           : {
+            direction : 1,
+            textStyle : { fontSize : 20 }
         },
-        vAxis           : { direction : 1, }
+        hAxis           : {
+            textStyle : { fontSize : 14 },
+            format    : '#,###%',
+            maxValue  : 1
+        }
     });
 }
