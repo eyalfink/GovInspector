@@ -7,10 +7,11 @@ Voluntarily coded by:
 * Eyal Fink - http://profiles.google.com/eyal.fink
 * Gil Silas
 * Michael Genkin - http://profiles.google.com/misha.genkin
-* Ory Band - http://profiles.google.com/oryband
+* Ory Band - http://profiles.google.com/oryband / http://oryband.com
 
 
 P.S.
 ===
 
-Many thanks to Google Israel for hosting us while we coded this thing.
+* Many thanks to Google Israel for hosting us while we coded this thing.
+* Inspector Clouseau icon By Luke Sedgeman - http://www.sedgeman.com
