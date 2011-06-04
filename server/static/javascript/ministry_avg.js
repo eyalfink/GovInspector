@@ -34,11 +34,14 @@ function drawChart(data) {
     chart.draw(data, {
         width           : '100%',
         height          : 500,
-        title           : 'עמידה ביעדים',
+        legend          : 'none',
+        fontSize        : 20,
         backgroundColor : '#DEECF9',
-        vAxis: {
-            title          : 'משרד',
-            titleTextStyle : {color  : 'red'}
+        hAxis: {
+            format : '#,###%'
         },
+        vAxis: {
+            direction : 1,
+        }
     });
 }

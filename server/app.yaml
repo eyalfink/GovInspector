@@ -7,6 +7,20 @@ handlers:
 - url: /static
   static_dir: static
 
+- url: /apple-touch-icon\.png
+  mime_type: image/png
+  static_files: static/media/logo.png
+  upload: static/media/logo.png
+
+- url: /favicon\.ico
+  mime_type: image/png
+  static_files: static/media/favicon.ico
+  upload: static/media/favicon.ico
+
+- url: /(robots\.txt|humans\.txt|crossdomain\.xml)
+  static_files: static/\1
+  upload: static/(robots\.txt|humans\.txt|crossdomain\.xml)
+
 - url: /
   script: main.py
 
