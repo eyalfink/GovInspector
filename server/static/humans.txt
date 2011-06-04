@@ -1,1 +1,16 @@
-FILL ME.
+Initiative by minister Michael Eitan, in charge of the improvement of government services in Israel - http://msh.gov.il
+
+
+Voluntarily coded by:
+=====================
+
+* Eyal Fink - http://profiles.google.com/eyal.fink
+* Gil Silas
+* Michael Genkin - http://profiles.google.com/misha.genkin
+* Ory Band - http://profiles.google.com/oryband
+
+
+P.S.
+===
+
+Many thanks to Google Israel for hosting us while we coded this thing.

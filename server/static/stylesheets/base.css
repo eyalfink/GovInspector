@@ -148,10 +148,11 @@ a:hover {
   margin:  5px 0;
   padding: 0;
 
-  width:   460px;
-
   float:   right;
 }
+
+#footer p.right { width: 520px; }
+#footer p.left  { width: 400px; }
 
 #footer .left {
   float:      left;
