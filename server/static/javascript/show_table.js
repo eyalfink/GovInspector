@@ -14,9 +14,30 @@ function drawFusionTable() {
 }
 
 function drawTable(data) {
-    var tableEl = document.getElementById('gii_issues_list_view')
+    var headers = data.B;  // Overwrite db column header labels.
+
+    headers[0].label = "ליקוי";
+    headers[1].label = "נושא";
+    headers[2].label = "דו\"ח";
+    headers[3].label = "טיפול";
+
+
+    var formatter = new google.visualization.ColorFormat();
+
+    formatter.addRange(0, 0.5, 'black', '#E77471');
+    formatter.addRange(1, 1.5, 'black', '#FFF380');
+    formatter.addRange(2, 2.5, 'black', '#C3FDB8');
+
+    formatter.format(data, 3);  // Apply formatter to status column.
+
+
+    var tableEl = document.getElementById('gii_issues_list_view');
     var table = new google.visualization.Table(tableEl);
-    table.draw(data, {showRowNumber: true,
-		page: 'enable',
-		rtlTable: true});
+
+    table.draw(data, {
+		rtlTable : true,
+		page     : 'enable',
+        allowHtml : true
+        //showRowNumber : true
+    });
 }
