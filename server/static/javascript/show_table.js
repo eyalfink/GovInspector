@@ -15,9 +15,9 @@ function createDashboard() {
     gii.issuesTable = createIssuesTable();
 
     // bind the events
-    google.visualization.events.addListener(gii.officeTable,
-					    'select',
-					    updatePerformanceChart);
+    //    google.visualization.events.addListener(gii.officeTable,
+    //					    'select',
+    //					    updatePerformanceChart);
     google.visualization.events.addListener(gii.officeTable,
 					    'select',
 					    updateIssuesTable);
@@ -87,11 +87,11 @@ function createIssuesTable() {
 
 function updateIssuesTable() {
     var selection = gii.officeTable.getSelection();
-    if (!selection) {
+    if (!selection || !selection.length) {
 	return;
     }
     var item = selection[0];
-    if (!item.row) {
+    if (item.row == null) {
 	return;
     }
     var office = gii.officesData.getFormattedValue(item.row, 0);
