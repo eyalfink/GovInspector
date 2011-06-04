@@ -10,8 +10,14 @@ Voluntarily coded by:
 * Ory Band - http://profiles.google.com/oryband / http://oryband.com
 
 
+Design:
+=======
+
+* Original website design by Adam Kariv of Open-Budget project - http://budget.msh.gov.il
+
+
 P.S.
-===
+====
 
 * Many thanks to Google Israel for hosting us while we coded this thing.
 * Inspector Clouseau icon By Luke Sedgeman - http://www.sedgeman.com
