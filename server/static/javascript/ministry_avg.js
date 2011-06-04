@@ -15,8 +15,14 @@ function drawChart() {
     });
 
     var chart = new google.visualization.BarChart(document.getElementById('ministry_avg_chart'));
-    chart.draw(data, {width: 400, height: 240, title: 'עמידה ביעדים',
-               vAxis: {title: 'משרד', titleTextStyle: {color: 'red'}},
-               backgroundColor: '#DEECF9'
+    chart.draw(data, {
+        width           : '100%',
+        height          : 500,
+        title           : 'עמידה ביעדים',
+        backgroundColor : '#DEECF9',
+        vAxis: {
+            title          : 'משרד',
+            titleTextStyle : {color  : 'red'}
+        },
     });
 }
