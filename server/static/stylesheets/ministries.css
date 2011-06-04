@@ -4,3 +4,14 @@ nav ul li:nth-child(2) a {  /* White cardboard box on selected page nav element.
 	background-color: #FFFFFF;
 }
 
+#gii_office_selection {
+    display: inline;
+}
+#gii_office_list {
+    float: right;
+    width: 40%;
+}
+#gii_performance {
+    float: left;
+    width: 60%;
+}
