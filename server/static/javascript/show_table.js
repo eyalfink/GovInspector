@@ -14,15 +14,12 @@ function createDashboard() {
 }
 
 
-////////////////////////////////////////////////////////////
-//   Office list table
-////////////////////////////////////////////////////////////
-function createOfficeTable() {
+function createOfficeTable() {  // Office list table
     var queryText = encodeURIComponent(
         "SELECT office, count(status) FROM " + gii.TABLE_NUMBER + " GROUP BY office");
     var query = new google.visualization.Query(gii.FT_URL  + queryText);
-  
-    query.send(function(response) {
+
+    query.send(function (response) {
 	    drawOfficeTable(response.getDataTable());
 	});
 }
@@ -30,20 +27,19 @@ function createOfficeTable() {
 function drawOfficeTable(data) {
     var tableEl = document.getElementById('gii_office_list_view')
     var table = new google.visualization.Table(tableEl);
-    table.draw(data,{
-	width           : '40%',
-	rtlTable: true});
+    table.draw(data, {
+        width    : '40%',
+        rtlTable : true
+    });
 }
 
-////////////////////////////////////////////////////////////
-//   Office performance chart
-////////////////////////////////////////////////////////////
-function createPerformanceChart() {
+
+function createPerformanceChart() {  // Office performance chart
     var queryText = encodeURIComponent(
         "SELECT report, average(status) FROM " + gii.TABLE_NUMBER + " GROUP BY report");
     var query = new google.visualization.Query(gii.FT_URL  + queryText);
-  
-    query.send(function(response) {
+
+    query.send(function (response) {
 	    drawPerformanceChart(response.getDataTable());
 	});
 }
@@ -57,10 +53,7 @@ function drawPerformanceChart(data) {
 }
 
 
-////////////////////////////////////////////////////////////
-//   Issues table
-////////////////////////////////////////////////////////////
-function createIssuesTable() {
+function createIssuesTable() {  // Issues table
     var queryText = encodeURIComponent(
         "SELECT text, topic, report, status FROM " + gii.TABLE_NUMBER);
     var query = new google.visualization.Query(gii.FT_URL  + queryText);
