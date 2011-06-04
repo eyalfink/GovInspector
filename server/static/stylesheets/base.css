@@ -207,3 +207,7 @@ nav ul li a:hover {
   float:      left;
   text-align: left;
 }
+
+.gii_section_header {
+    font-size: 20px;
+}
