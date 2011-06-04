@@ -1,6 +1,6 @@
+import utils
 
 from django.utils import simplejson
-import utils
 import model
 
 class Main(utils.Handler):
@@ -10,7 +10,8 @@ class Main(utils.Handler):
                     data=simplejson.dumps(self.get_ministry_avg()))
 
     def get_ministry_avg(self):
-        results = self.model.query('agrr')
+        #results = self.model.query('agrr')
+        return self.model.get_issue(1)
         return [{'name': 'foo',
                  'avg': 0.5},
                 {'name': 'bar',

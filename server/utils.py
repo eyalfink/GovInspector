@@ -1,3 +1,6 @@
+from google.appengine.dist import use_library
+use_library('django', '1.2')
+
 import logging
 from google.appengine.ext import webapp
 import google.appengine.ext.webapp.template
@@ -5,10 +8,14 @@ import google.appengine.ext.webapp.util
 import cgitb
 import sys
 import os
+from google.appengine.api import urlfetch
+from django.utils import simplejson
 
 import model
+import app_model
 
 ROOT = os.path.dirname(__file__)
+
 
 
 class ErrorMessage(Exception):
@@ -30,9 +37,20 @@ class Struct:
 
 class Handler(webapp.RequestHandler):
     def __init__(self):
-        self.model = model.ModelAccess()
+        secrets = app_model.Secrets.all().fetch(1)
+        yeda_token = None
+        if secrets:
+            yeda_token = secrets[0].yeda_token
+        self.model = model.ModelAccess(urlfetch=urlfetch, 
+                                       simplejson=simplejson,
+                                       yeda_token=yeda_token)
+
         self.auto_params = {
             }
+
+        #TODO(eyalf): cache in memcache
+        self.schema = self.model.get_schema()
+
 
     def render(self, path, **params):
         """Renders the template at the given path with the given parameters."""

@@ -11,4 +11,11 @@ handlers:
   script: main.py
 
 - url: /admin/add_issue
-  script: addissue.py
+  script: add_issue.py
+
+- url: /admin/set_secret
+  script: set_secret.py
+
+- url: /test
+  script: model_test.py
+

@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method="post" action="/admin/add_issue">
+  {% for name, field in schema.items %}
+    <div class="field">
+      <label for="title">{{name}}</label>
+      <input title="{{field.description}}" type="text" name="{{name}}" id="{{name}}" />
+      <span class='gii-form-help'>{{field.description}}</span>
+    </div>
+  {% endfor %}
+    <hr>
+	<div class="field">
+		<label for="title">סעיף</label>
+		<input type="text" name="issue[title]" id="title" />
+	</div>
+	
+	<div class="field">
+		<label for="defect">ליקוי</label>
+		<textarea id="defect" name="issue[defect]"></textarea>
+	</div>
+	
+	<div class="field">
+		<label for="track">מעקב</label>
+		<textarea id="track" name="issue[track]"></textarea>
+	</div>
+	
+	<div class="field">
+		<label for="status">מצב</label>
+		<select name="issue[status]" id="status">
+			<option value="notdone">לא הושלם</option>
+			<option value="progress">בתהליך</option>
+			<option value="done">בוצע</option>
+		</select>
+	</div>
+	
+	<div class="field">
+		<label for="type">סוג</label>
+		<select name="issue[type]" id="type">
+			<option value="inspector">מבקר</option>
+			<option value="gov">ממשלה</option>
+		</select>
+	</div>
+	
+	<div class="field">
+		<input type="submit" value="הוסף">
+	</div>
+</form>
+
+{% endblock %}
