@@ -3,18 +3,18 @@
 import urllib
 import logging
 
-DB_QUERY_URL = 'http://api.yeda.us/data/gov/inspector/issues'
-DB_POST_URL = 'http://api.yeda.us/data/gov/inspector/issues'
+DB_URL = 'http://api.yeda.us/data/gov/inspector/issues'
 
 
 class ModelAccess(object):
 
-    def __init__(self, urlfetch, simplejson):
+    def __init__(self, urlfetch, simplejson, yeda_token):
         self.urlfetch = urlfetch
         self.simplejson = simplejson
+        self.yeda_token = yeda_token
 
     def _get_json(self, params, issue_id=None):
-        url = DB_QUERY_URL
+        url = DB_URL
         if issue_id:
             url += '/%s'%issue_id
         if params:
@@ -29,8 +29,10 @@ class ModelAccess(object):
         return self.simplejson.loads(result.content)
 
     def _post_json(self, issue_id, params):
+        if not self.yeda_token:
+            raise Exception('ask eyal how to fix this')
         headers={'Content-Type': 'application/json'}
-        url = '%s/%s?%s'%(DB_POST_URL, issue_id, 'apikey=admin')
+        url = '%s/%s?%s'%(DB_URL, issue_id, 'apikey=%s'%self.yeda_token)
         data = self.simplejson.dumps(params)
         result = self.urlfetch.fetch(url=url,
                                 payload=data,

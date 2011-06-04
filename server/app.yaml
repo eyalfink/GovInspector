@@ -13,6 +13,9 @@ handlers:
 - url: /admin/add_issue
   script: add_issue.py
 
+- url: /admin/set_secret
+  script: set_secret.py
+
 - url: /test
   script: model_test.py
 

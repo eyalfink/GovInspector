@@ -1,6 +1,6 @@
+import utils
 
 from django.utils import simplejson
-import utils
 import model
 
 class Main(utils.Handler):
