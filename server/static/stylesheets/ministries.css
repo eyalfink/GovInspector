@@ -1,0 +1,6 @@
+nav ul li:nth-child(2) a {  /* White cardboard box on selected page nav element. */
+    padding-bottom: 20px;
+    color: #153E7E;
+	background-color: #FFFFFF;
+}
+
