@@ -1,6 +1,7 @@
 import utils
 import model
 import random
+import logging
 
 class AddIssue(utils.Handler):
   def get(self):
@@ -10,13 +11,15 @@ class AddIssue(utils.Handler):
   def post(self):
     issue = {}
     for arg in self.request.arguments():
-      if arg in self.schema and self.request.get(arg):
+      logging.info('Found arg %s: %s', arg, self.request.get(arg))
+      if arg in self.schema['fields'] and self.request.get(arg):
         issue[arg] = self.request.get(arg)
         # issue = { "title": self.request.get('issue[title]'),
         #           "defect": self.request.get('issue[defect]'),
         #           "track": self.request.get('issue[track]'),
         #           "status": self.request.get('issue[status]'),
         #           "type": self.request.get('issue[type]')}
+    logging.info('Issue:\n%s', issue)
     issue_id = random.randint(100,100000)
     self.model.create_issue(issue_id=issue_id, issue=issue)
 
