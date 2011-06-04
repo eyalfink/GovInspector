@@ -15,9 +15,9 @@ function createDashboard() {
     gii.issuesTable = createIssuesTable();
 
     // bind the events
-    //    google.visualization.events.addListener(gii.officeTable,
-    //					    'select',
-    //					    updatePerformanceChart);
+    google.visualization.events.addListener(gii.officeTable,
+    					    'select',
+    					    updatePerformanceChart);
     google.visualization.events.addListener(gii.officeTable,
 					    'select',
 					    updateIssuesTable);
@@ -60,9 +60,21 @@ function createPerformanceChart() {  // Office performance chart
 }
 
 function updatePerformanceChart() {
+    var selection = gii.officeTable.getSelection();
+    if (!selection || !selection.length) {
+	return;
+    }
+    var item = selection[0];
+    if (item.row == null) {
+	return;
+    }
+    var office = gii.officesData.getFormattedValue(item.row, 0);
+
     var queryText = encodeURIComponent(
         "SELECT report, average(status) FROM " +
-	gii.TABLE_NUMBER + " GROUP BY report");
+	gii.TABLE_NUMBER + 
+	" WHERE office = '" + office + "'" +
+	" GROUP BY report");
     var query = new google.visualization.Query(gii.FT_URL  + queryText);
 
     query.send(function (response) {
