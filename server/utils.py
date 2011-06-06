@@ -49,7 +49,7 @@ class Handler(webapp.RequestHandler):
             }
 
         #TODO(eyalf): cache in memcache
-        self.schema = self.model.get_schema()
+        #self.schema = self.model.get_schema()
 
 
     def render(self, path, **params):
