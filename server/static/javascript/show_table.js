@@ -131,21 +131,31 @@ function updateIssuesTable() {
 }
 
 function drawIssuesTable(data) {
-    var headers = data.B;  // Overwrite db column header labels.
+    
+    COLUMNS = {}
+    COLUMNS.ISSUE = 0;
+    COLUMNS.TOPIC = 1;
+    COLUMNS.REPORT = 2;
+    COLUMNS.NUMERIC_STATUS = 3;
 
-    headers[0].label = "ליקוי";
-    headers[1].label = "נושא";
-    headers[2].label = "דו\"ח";
-    headers[3].label = "טיפול";
 
+    // Overwrite db column header labels.
+    data.setColumnLabel(COLUMNS.ISSUE, "ליקוי");
+    data.setColumnLabel(COLUMNS.TOPIC, "נושא");
+    data.setColumnLabel(COLUMNS.REPORT, "דו\"ח");
 
-    var formatter = new google.visualization.ColorFormat();
-
-    formatter.addRange(0, 0.5, 'black', '#E77471');
-    formatter.addRange(1, 1.5, 'black', '#FFF380');
-    formatter.addRange(2, 2.5, 'black', '#C3FDB8');
-
-    formatter.format(data, 3);  // Apply formatter to status column.
+    formattedStatus = ['<img src="/static/media/reddot.png"> טרם החל', 
+		       '<img src="/static/media/yellowdot.png"> בטיפול',
+		       '<img src="/static/media/greendot.png"> הסתיים'];
+    // Replace the status numbers with color image
+    COLUMNS.STATUS = data.addColumn("string", "טיפול");
+    for( var i=0; i < data.getNumberOfRows(); i++) {
+	var status = data.getValue(i, COLUMNS.NUMERIC_STATUS);
+	if (status != null) {
+	    data.setValue(i, COLUMNS.STATUS, formattedStatus[status]);
+	    data.setProperty(i, COLUMNS.STATUS, "className", "gii_status_col");
+	}
+    }
 
     gii.issuesTable.draw(data, {
 		rtlTable  : true,

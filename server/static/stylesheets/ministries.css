@@ -30,3 +30,12 @@ nav ul li:nth-child(2) a {  /* White cardboard box on selected page nav element.
     width: 55%;
     float: left;
 }
+
+.gii_status_col {
+    width: 7em;
+    font-weight: bold;
+}
+
+#gii_issues_list_view  .google-visualization-table-td {
+    border-width: 0px;
+}
