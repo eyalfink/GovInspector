@@ -38,10 +38,9 @@ function createOfficeTable() {  // Office list table
 }
 
 function drawOfficeTable(table, data) {
-    var headers = data.B;  // Overwrite db column header labels.
-
-    headers[0].label = "משרד";
-    headers[1].label = "ליקויים";
+    // Overwrite db column header labels.
+    data.setColumnLabel(0, "משרד");
+    data.setColumnLabel(1, "ליקויים");
 
     gii.officesData = data;
 
