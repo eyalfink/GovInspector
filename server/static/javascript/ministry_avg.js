@@ -22,7 +22,7 @@ function drawStaticChart() {
 
 function drawFusionTableChart() {
     var queryText = encodeURIComponent("SELECT office, AVERAGE(status) as performance FROM 946168 group by office");
-    var query = new google.visualization.Query('http://www.google.com/fusiontables/gvizdata?tq='  + queryText);
+    var query = new google.visualization.Query('/ft_bridge?tq='  + queryText);
   
     query.send(function(response) {
 	    drawChart(response.getDataTable());
