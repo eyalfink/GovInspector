@@ -5,7 +5,8 @@ google.load("visualization", "1", {packages: ["table",
 google.setOnLoadCallback(createDashboard);
 
 var gii = gii || {};
-gii.FT_URL = 'http://www.google.com/fusiontables/gvizdata?tq=';
+//gii.FT_URL = 'http://www.google.com/fusiontables/gvizdata?tq=';
+gii.FT_URL = '/ft_bridge?tq=';
 gii.TABLE_NUMBER = 946168;
 
 function createDashboard() {
